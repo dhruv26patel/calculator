@@ -18,8 +18,8 @@ pipeline {
             }
             stage("Code coverage") {
                 steps {
-                    sh "./gradlew jacocoTestReport"
-                    sh "./gradlew jacocoTestCoverageVerification"
+                    sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestReport"
+                    sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestCoverageVerification"
                 }
             }
      }
