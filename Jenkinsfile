@@ -29,7 +29,7 @@ pipeline {
             }
             stage("Static code analysis") {
                 steps {
-                    sh "./gradlew checkstyleMain"
+                    sh "pwd; cd calculator; ls -l; ./gradlew checkstyleMain"
                     publishHTML (target: [
                         reportDir: 'build/reports/checkstyle/',
                         reportFiles: 'main.html',
