@@ -2,6 +2,9 @@ package com.demo.calculator;
 
 import org.springframework.stereotype.Service;
 
+/**
+ * Calculator Service.
+ */
 @Service
 public class CalculatorService {
 
