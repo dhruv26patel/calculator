@@ -16,5 +16,11 @@ pipeline {
                     sh "pwd; cd calculator; ls -l; ./gradlew test"
                 }
             }
+            stage("Code coverage") {
+                steps {
+                    sh "./gradlew jacocoTestReport"
+                    sh "./gradlew jacocoTestCoverageVerification"
+                }
+            }
      }
 }
