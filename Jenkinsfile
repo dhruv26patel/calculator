@@ -37,5 +37,21 @@ pipeline {
                     // ])
                 }
             }
+            stage("Package") {
+                steps {
+                    sh "pwd; cd calculator; ls -l; ./gradlew build"
+                }
+            }
+
+            stage("Docker build") {
+                steps {
+                    sh "pwd; cd calculator; ls -l; docker build -t leszko/calculator ."
+                }
+            }
+            stage("Docker push") {
+                steps {
+                    sh "docker push leszko/calculator"
+                }
+            }
      }
 }
