@@ -68,5 +68,10 @@ pipeline {
                     sh "pwd; ls -l; whoami; chmod +x acceptance_test.sh; ./acceptance_test.sh"
                 }
             }
+            post {
+                always {
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker stop calculator"
+                }
+            }
      }
 }
