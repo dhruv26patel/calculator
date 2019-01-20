@@ -44,7 +44,7 @@ pipeline {
             }
             stage("Docker build") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker build -t leszko/calculator ."
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker build -t dhruv26patel/calculator ."
                 }
             }
             stage("Docker login") {
