@@ -62,5 +62,11 @@ pipeline {
                     sh "pwd; cd calculator; ls -l; whoami; sudo docker run -d --rm -p 8081:8081 --name calculator-new dhruv26patel/calculator"
                 }
             }
+            stage("Acceptance test") {
+                steps {
+                    sleep 60
+                    sh "pwd; ls -l; whoami; ./acceptance_test.sh"
+                }
+            }
      }
 }
