@@ -44,7 +44,7 @@ pipeline {
             }
             stage("Docker login") {
                 steps {
-                    sh "docker login"
+                    sh "sudo docker login"
                 }
             }
             stage("Docker build") {
