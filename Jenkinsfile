@@ -71,7 +71,7 @@ pipeline {
      }
     post {
         always {
-            sh "pwd; cd calculator; ls -l; whoami; sudo docker stop calculator"
+            sh "pwd; cd calculator; ls -l; whoami; sudo docker stop calculator-new"
         }
     }
 }
