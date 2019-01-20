@@ -54,7 +54,7 @@ pipeline {
             }
             stage("Docker push") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker login; sudo docker push leszko/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker push dhruv26patel/calculator"
                 }
             }
      }
