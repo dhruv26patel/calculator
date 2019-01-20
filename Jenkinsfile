@@ -42,19 +42,19 @@ pipeline {
                     sh "pwd; cd calculator; ls -l; ./gradlew build"
                 }
             }
-            stage("Docker login") {
-                steps {
-                    sh "sudo docker login"
-                }
-            }
             stage("Docker build") {
                 steps {
                     sh "pwd; cd calculator; ls -l; whoami; sudo docker build -t leszko/calculator ."
                 }
             }
+            stage("Docker login") {
+                steps {
+                    sh "sudo docker login"
+                }
+            }
             stage("Docker push") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker push leszko/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker login; sudo docker push leszko/calculator"
                 }
             }
      }
