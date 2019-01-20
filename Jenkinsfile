@@ -57,5 +57,10 @@ pipeline {
                     sh "pwd; cd calculator; ls -l; whoami; sudo docker push dhruv26patel/calculator"
                 }
             }
+            stage("Deploy to staging") {
+                steps {
+                    sh "pwd; cd calculator; ls -l; whoami; docker run -d --rm -p 8765:8080 --name calculator dhruv26patel/calculator"
+                }
+            }
      }
 }
