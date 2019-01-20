@@ -45,12 +45,12 @@ pipeline {
 
             stage("Docker build") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo su - root; docker build -t leszko/calculator ."
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker build -t leszko/calculator ."
                 }
             }
             stage("Docker push") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo su - root; docker push leszko/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker push leszko/calculator"
                 }
             }
      }
