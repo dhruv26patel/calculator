@@ -59,7 +59,7 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker run -d --rm -p 8765:8080 --name calculator dhruv26patel/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker run -d --rm -p 8765:8080 --name calculator-new dhruv26patel/calculator"
                 }
             }
      }
