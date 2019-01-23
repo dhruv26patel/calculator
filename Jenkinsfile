@@ -70,12 +70,12 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "docker-compose up -d"
+                    sh "pwd; cd calculator; ls -l; whoami;docker-compose up -d"
                 }
             } 
             stage {
                 steps {
-                    sh "docker-compose down"
+                    sh "pwd; cd calculator; ls -l; whoami; docker-compose down"
                 }
             }  
      }
