@@ -70,18 +70,13 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami;docker-compose up -d"
+                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
                 }
             } 
-            stage {
-                steps {
-                    sh "pwd; cd calculator; ls -l; whoami; docker-compose down"
-                }
-            }  
      }
     post {
         always {
-            sh "pwd; cd calculator; ls -l; whoami; sudo docker stop calculator-new"
+            sh "pwd; cd calculator; ls -l; whoami; docker-compose down"
         }
     }
 }
