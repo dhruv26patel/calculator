@@ -24,7 +24,7 @@ pipeline {
                     //     reportFiles: 'index.html',
                     //     reportName: "JaCoCo Report"
                     // ])
-                    //sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestCoverageVerification"
+                    sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestCoverageVerification"
                 }
             }
             stage("Static code analysis") {
