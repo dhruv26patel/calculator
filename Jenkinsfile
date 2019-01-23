@@ -59,7 +59,7 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker run -d --rm -p 8081:8081 --name calculator-new dhruv26patel/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
                 }
             }
             stage("Acceptance test") {
@@ -68,11 +68,6 @@ pipeline {
                     sh "pwd; ls -l; whoami; chmod +x acceptance_test.sh; ./acceptance_test.sh"
                 }
             }
-            stage("Deploy to staging") {
-                steps {
-                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
-                }
-            } 
      }
     post {
         always {
