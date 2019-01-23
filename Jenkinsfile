@@ -68,6 +68,16 @@ pipeline {
                     sh "pwd; ls -l; whoami; chmod +x acceptance_test.sh; ./acceptance_test.sh"
                 }
             }
+            stage("Deploy to staging") {
+                steps {
+                    sh "docker-compose up -d"
+                }
+            } 
+            post {
+                always {
+                    sh "docker-compose down"
+                }
+            }  
      }
     post {
         always {
