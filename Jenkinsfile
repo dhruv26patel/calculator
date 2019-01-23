@@ -73,8 +73,8 @@ pipeline {
                     sh "docker-compose up -d"
                 }
             } 
-            post {
-                always {
+            stage {
+                steps {
                     sh "docker-compose down"
                 }
             }  
