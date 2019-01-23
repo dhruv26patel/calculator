@@ -18,7 +18,7 @@ pipeline {
             }
             stage("Code coverage") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestReport"
+                    //sh "pwd; cd calculator; ls -l; ./gradlew jacocoTestReport"
                     // publishHTML (target: [
                     //     reportDir: 'build/reports/jacoco/test/html',
                     //     reportFiles: 'index.html',
@@ -59,7 +59,7 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker run -d --rm -p 8081:8081 --name calculator-new dhruv26patel/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
                 }
             }
             stage("Acceptance test") {
@@ -71,7 +71,7 @@ pipeline {
      }
     post {
         always {
-            sh "pwd; cd calculator; ls -l; whoami; sudo docker stop calculator-new"
+            sh "pwd; cd calculator; ls -l; whoami; docker-compose down"
         }
     }
 }
