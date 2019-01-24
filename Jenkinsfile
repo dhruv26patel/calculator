@@ -59,13 +59,13 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; su ec2-user; whoami; docker-compose up -d"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo su - ; whoami; docker-compose up -d"
                 }
             }
             stage("Acceptance test") {
                 steps {
                     sleep 60
-                    sh "pwd; ls -l; whoami; su ec2-user; whoami; chmod +x acceptance_test.sh; ./acceptance_test.sh"
+                    sh "pwd; ls -l; whoami; sudo su - ; whoami; chmod +x acceptance_test.sh; ./acceptance_test.sh"
                 }
             }
      }
