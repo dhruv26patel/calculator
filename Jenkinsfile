@@ -54,12 +54,12 @@ pipeline {
             }
             stage("Docker push") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker push dhruv26patel/calculator"
+                    sh "pwd; cd calculator; ls -l; whoami; docker push dhruv26patel/calculator"
                 }
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; sudo docker-compose up -d"
+                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
                 }
             }
             stage("Acceptance test") {
