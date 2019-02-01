@@ -4,12 +4,6 @@ pipeline {
         PATH = "$PATH:/usr/local/bin"
     }
      stages {
-         stage ("Docker") {
-             steps {
-                 sh "docker-compose --version"
-             }
-         }
-
           stage("Checkout") {
                steps {
                     git url: 'https://github.com/dhruv26patel/calculator'
