@@ -59,7 +59,7 @@ pipeline {
             }
             stage("Deploy to staging") {
                 steps {
-                    sh "pwd; cd calculator; ls -l; whoami; docker-compose up -d"
+                    sh "pwd; cd calculator; ls -l; whoami; sudo docker-compose up -d"
                 }
             }
             stage("Acceptance test") {
